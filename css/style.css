@@ -1,0 +1,123 @@
+.margin__bottom-medium {
+  margin-bottom: 5rem;
+}
+
+.margin__bottom-small {
+  margin-bottom: 2.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+@media (max-width: 660px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to right, rgb(169, 87, 246), rgb(206, 40, 206));
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+  height: 60vh;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading__primary {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 1rem #fff, 0 0 3rem #fff, 0 0 6rem #fff;
+}
+@media (max-width: 1320px) {
+  .heading__primary {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 520px) {
+  .heading__primary {
+    font-size: 4.5rem;
+  }
+}
+.heading__primary-span {
+  position: relative;
+  text-shadow: none;
+}
+.heading__primary-span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  width: 110%;
+  height: 110%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0.1rem solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.6rem;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
+  transform: rotate(5deg);
+  backdrop-filter: blur(0.5rem);
+}
+@media (max-width: 520px) {
+  .heading__primary-span::before {
+    backdrop-filter: blur(0.3rem);
+  }
+}
+
+.text__paragraph {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 700;
+  color: #ddda2a;
+}
+
+.form {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.2rem 0.2rem rgba(255, 255, 255, 0.2);
+  border-radius: 0.2rem;
+  width: 15rem;
+  height: 4rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__label {
+  font-size: 2.2rem;
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+.form__input {
+  width: 4rem;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.form__input:focus {
+  outline: none;
+}

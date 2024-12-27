@@ -1,0 +1,159 @@
+// *** VARIABLES ***
+$linearGradient-01: rgb(169, 87, 246);
+$linearGradient-02: rgb(206, 40, 206);
+
+$color-primary: #fff;
+$color-text: #ddda2a;
+
+$margin-bottom-medium: 5rem;
+$margin-bottom-small: 2.5rem;
+
+// *** MIXINS ***
+@mixin glassEffect {
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 0.1rem solid rgba(255, 255, 255, 0.25);
+	border-radius: 1.6rem;
+	box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
+	transform: rotate(5deg);
+
+	backdrop-filter: blur(0.5rem);
+
+	@media (max-width: 520px) {
+		backdrop-filter: blur(0.3rem);
+	}
+}
+// *** Utility Class ***
+.margin__bottom-medium {
+	margin-bottom: $margin-bottom-medium;
+}
+
+.margin__bottom-small {
+	margin-bottom: $margin-bottom-small;
+}
+// *** RESET ***
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+
+	@media (max-width: 660px) {
+		font-size: 50%;
+	}
+}
+
+// *** GENERAL ***
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	background-image: linear-gradient(
+		to right,
+		$linearGradient-01,
+		$linearGradient-02
+	);
+
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-align: center;
+}
+
+.container {
+	width: 100vw;
+	height: 60vh;
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+// *** MAIN CODE ***
+.heading__primary {
+	font: {
+		size: 8rem;
+		weight: bold;
+	}
+
+	color: $color-primary;
+	text-shadow: 0 0 1rem $color-primary, 0 0 3rem $color-primary,
+		0 0 6rem $color-primary;
+
+	@media (max-width: 1320px) {
+		font-size: 6rem;
+	}
+
+	@media (max-width: 520px) {
+		font-size: 4.5rem;
+	}
+
+	&-span {
+		position: relative;
+		text-shadow: none;
+	}
+
+	&-span::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -1rem;
+		width: 110%;
+		height: 110%;
+
+		// Glass Effect
+		@include glassEffect();
+	}
+}
+
+.text__paragraph {
+	font: {
+		size: 3rem;
+		style: italic;
+		weight: 700;
+	}
+
+	color: $color-text;
+}
+
+.form {
+	background-color: rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 0.2rem 0.2rem rgba(255, 255, 255, 0.2);
+	border-radius: 0.2rem;
+	width: 15rem;
+	height: 4rem;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__label {
+		font: {
+			size: 2.2rem;
+			style: italic;
+		}
+		margin-right: 0.5rem;
+	}
+
+	&__input {
+		width: 4rem;
+		border: none;
+		font-size: 2rem;
+		padding: 0.5rem 1rem;
+		background-color: rgba(0, 0, 0, 0.1);
+		text-align: center;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
